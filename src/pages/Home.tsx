@@ -1,6 +1,6 @@
 import React, { useState, useId, useCallback, useEffect } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
@@ -126,15 +126,12 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
 };
 
 export default function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
     id: string,
   ) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -143,109 +140,7 @@ export default function Home() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <GridBackground className="[mask-image:none]" />
       </div>
-      {/* Header */}
-      <div className="absolute top-0 left-0 right-0 w-full z-50 bg-[#FAFAFA] border-b-2 border-gray-900">
-        <header className="pointer-events-auto px-4 py-4 sm:px-8 sm:py-6 flex items-center justify-between w-full max-w-7xl mx-auto transition-all">
-          <div
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={(e) => scrollToSection(e, "hero")}
-          >
-            <img
-              src="https://i.ibb.co/KjBKKxBh/photo-2026-05-16-19-31-22.jpg"
-              alt="Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
-            />
-            <span className="font-bold text-[15px] sm:text-lg tracking-tight text-gray-900">
-              Руслик Базанул
-            </span>
-          </div>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            <button
-              onClick={(e) => scrollToSection(e, "about")}
-              className="text-sm font-semibold text-gray-900 hover:text-[#04CFF9] transition-colors"
-            >
-              Кто я?
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "program")}
-              className="text-sm font-semibold text-gray-900 hover:text-[#04CFF9] transition-colors"
-            >
-              Что внутри?
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "faq")}
-              className="text-sm font-semibold text-gray-900 hover:text-[#04CFF9] transition-colors"
-            >
-              FAQ
-            </button>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={(e) => scrollToSection(e, "checkout")}
-              className="hidden sm:block text-sm font-bold bg-[#04CFF9] text-gray-900 px-6 py-2.5 rounded-full hover:bg-gray-900 hover:text-[#04CFF9] transition-all"
-            >
-              Вступить
-            </button>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-full text-gray-900 border border-transparent hover:border-gray-900 transition-colors"
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
-        </header>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 right-6 z-50 bg-white border border-gray-900 p-4 rounded-3xl shadow-xl flex flex-col gap-4 min-w-[200px]"
-          >
-            <button
-              onClick={(e) => scrollToSection(e, "hero")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              Главная
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "about")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              Кто я?
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "program")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              Что внутри?
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "cases")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              Кейсы
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "checkout")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              Тарифы
-            </button>
-            <button
-              onClick={(e) => scrollToSection(e, "faq")}
-              className="text-left font-medium hover:text-[#04CFF9] transition-colors"
-            >
-              FAQ
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
       {/* Top Glow */}
       <div
         aria-hidden="true"
@@ -292,7 +187,7 @@ export default function Home() {
       {/* Block 1: Hero Section */}
       <section
         id="hero"
-        className="relative pt-24 pb-4 flex flex-col items-center justify-start text-center w-full px-4 sm:px-6 max-w-6xl mx-auto z-10"
+        className="relative pt-6 pb-4 flex flex-col items-center justify-start text-center w-full px-4 sm:px-6 max-w-6xl mx-auto z-10"
       >
         <div className="flex flex-col gap-8 w-full text-left pt-6">
           <motion.div
@@ -586,7 +481,7 @@ export default function Home() {
               <span className="text-[#04CFF9]">тариф</span>
             </h2>
             <p className="text-gray-600 font-medium text-lg leading-relaxed max-w-3xl">
-              <strong className="font-bold text-gray-900">Вступай в Академию и закрой первого клиента через 7 дней!</strong>
+              <strong className="font-bold text-gray-900">Вступай в Базу и закрой первого клиента через 7 дней!</strong>
               <br />
               <br />
               Если остались вопросы, пиши {" "}
@@ -696,7 +591,7 @@ export default function Home() {
                 <li className="flex items-start gap-3">
                   <span className="font-bold text-white">✓</span>{" "}
                   <span className="font-medium text-sm">
-                    Бессрочный доступ к Академии
+                    Бессрочный доступ к Базе
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
