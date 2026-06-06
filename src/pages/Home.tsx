@@ -206,7 +206,7 @@ export default function Home() {
               <span className="italic underline decoration-[#04CFF9] decoration-4 underline-offset-4">2-3к$ с таргета</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium max-w-2xl text-center mb-8">
-              <strong className="text-gray-900">Смотри видео -</strong> там я разобрал основные моменты, как войти в таргет на ЛЮБУЮ НИШУ и найти первых клиентов уже через 7 дней
+              <strong className="text-gray-900">Смотри видео -</strong> там я разобрал что внутри моего продукта, который поможет тебе найти первых клиентов уже через 7 дней
             </p>
           </motion.div>
 
@@ -220,15 +220,14 @@ export default function Home() {
               {/* Screen */}
               <div className="relative w-full aspect-[16/10] bg-gray-900 border-x-[8px] sm:border-x-[12px] border-t-[8px] sm:border-t-[12px] border-b-[24px] sm:border-b-[32px] border-gray-800 rounded-t-3xl overflow-hidden shadow-2xl">
                 {/* Screen Content */}
-                <img
-                  src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=2000&auto=format&fit=crop"
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay grayscale"
-                  alt="Background Texture"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#04CFF9] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(4,207,249,0.5)] group-hover:scale-110 transition-transform cursor-pointer z-30">
-                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-                  </div>
+                <div className="absolute inset-0 w-full h-full bg-black z-20">
+                  <iframe 
+                    src="https://player.mediadelivery.net/embed/634586/a7ef1df9-dff2-4b49-a0a6-353819c44849?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
+                    loading="lazy" 
+                    style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
+                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" 
+                    allowFullScreen={true}
+                  ></iframe>
                 </div>
                 {/* Macbook branding on bottom bezel */}
                 <div className="absolute bottom-[-18px] sm:bottom-[-24px] left-1/2 -translate-x-1/2 text-[8px] sm:text-[10px] text-gray-500 font-bold tracking-widest uppercase">
